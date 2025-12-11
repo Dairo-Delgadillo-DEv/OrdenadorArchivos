@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizador de Archivos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="/eel.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📁 Organizador de Archivos</h1>
+            <p class="subtitle">Organiza tus archivos automáticamente por categorías</p>
+        </header>
+
+        <main>
+            <div class="card">
+                <h2>Seleccionar Carpeta</h2>
+                <div class="input-group">
+                    <input type="text" id="rutaInput" placeholder="Ruta de la carpeta a organizar" readonly>
+                    <button onclick="cargarRutaDocumentos()" class="btn btn-secondary">📂 Documentos</button>
+                    <button onclick="establecerRutaManual()" class="btn btn-primary">✓ Establecer</button>
+                </div>
+                <p class="help-text">Haz clic en "Documentos" para usar tu carpeta de documentos o escribe una ruta personalizada</p>
+            </div>
+
+            <div class="card" id="previewCard" style="display: none;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                    <h2 style="margin: 0;">Vista Previa</h2>
+                    <button onclick="actualizarVista()" class="btn btn-secondary">🔄 Actualizar</button>
+                </div>
+                <div id="previewContent"></div>
+                <button onclick="ejecutarOrganizacion()" class="btn btn-success btn-large">🚀 Organizar Archivos</button>
+            </div>
+
+            <div class="card" id="resultadosCard" style="display: none;">
+                <h2>Resultados</h2>
+                <div id="estadisticas"></div>
+                <div id="detalles"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>💡 Solo se organizan documentos, imágenes, videos y música</p>
+            <p style="font-size: 0.9em; opacity: 0.8; margin-top: 5px;">⚠️ Archivos comprimidos (.zip, .rar) y ejecutables no se moverán</p>
+        </footer>
+    </div>
+
+    <div id="loader" class="loader" style="display: none;">
+        <div class="spinner"></div>
+        <p>Organizando archivos...</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
